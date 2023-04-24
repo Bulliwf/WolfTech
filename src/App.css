@@ -1,10 +1,25 @@
 .App {
   text-align: center;
+  background-color: #282c34;
+  color: #ffffff;
+  min-height: 100vh !important;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#signout{
+  margin-bottom: 20px !important;
+  background-color: #282c34 !important;
+}
+
+.imagePlacement {
+  border-radius: 15px;
+}
+
+.bannerText {
+  color: #ffffff !important;
+  text-align: center !important;
+  background-color: #ff9900 !important;
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
 }
 
 @media (prefers-reduced-motion: no-preference) {

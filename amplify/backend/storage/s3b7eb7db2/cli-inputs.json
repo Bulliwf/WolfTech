@@ -1,0 +1,14 @@
+{
+  "resourceName": "s3b7eb7db2",
+  "policyUUID": "b7eb7db2",
+  "bucketName": "wolftech84c0fa6ce6434e2a978c3a5449e9fdbe",
+  "storageAccess": "auth",
+  "guestAccess": [],
+  "authAccess": [
+    "CREATE_AND_UPDATE",
+    "READ",
+    "DELETE"
+  ],
+  "triggerFunction": "NONE",
+  "groupAccess": {}
+}

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
-import "@aws-amplify/ui-react/styles.css";
+import {withAuthenticator, AmplifySignOut}"@aws-amplify/ui-react/styles.css";
 import { API, Storage } from "aws-amplify";
 import {
   Button,
@@ -29,13 +29,13 @@ const App = ({ signOut }) => {
     const apiData = await API.graphql({ query: listNotes });
     const notesFromAPI = apiData.data.listNotes.items;
     await Promise.all(
-        notesFromAPI.map(async (note) =>{
-            if (note.image) {
-                const url = await Storage.get(note.name);
-                note.image = url;
-            }
-            return note;
-        }) 
+      notesFromAPI.map(async (note) => {
+        if (note.image) {
+          const url = await Storage.get(note.name);
+          note.image = url;
+        }
+        return note;
+      })
     );
     setNotes(notesFromAPI);
   }
@@ -69,7 +69,7 @@ const App = ({ signOut }) => {
   }
 
   return (
-    <View className="App">
+    <><View className="App">
       <Heading level={1}>My Notes App</Heading>
       <View as="form" margin="3rem 0" onSubmit={createNote}>
         <Flex direction="row" justifyContent="center">
@@ -79,16 +79,14 @@ const App = ({ signOut }) => {
             label="Note Name"
             labelHidden
             variation="quiet"
-            required
-          />
+            required />
           <TextField
             name="description"
             placeholder="Note Description"
             label="Note Description"
             labelHidden
             variation="quiet"
-            required
-          />
+            required />
           <Button type="submit" variation="primary">
             Create Note
           </Button>
@@ -108,10 +106,11 @@ const App = ({ signOut }) => {
             </Text>
             <Text as="span">{note.description}</Text>
             {note.image && (
-                <Image
-                    src={note.image}
-                    style={{width = 400}}
-        )}
+              <Image
+                src={note.image}
+                alt={`visual aid for ${notes.name}`}
+                style={{ width = 400 }} />
+            )}
             <Button variation="link" onClick={() => deleteNote(note)}>
               Delete note
             </Button>
@@ -119,13 +118,11 @@ const App = ({ signOut }) => {
         ))}
       </View>
       <Button onClick={signOut}>Sign Out</Button>
-    </View>
-    <View
-      name="image"
-      as="input"
-      type="file"
-      style={{ alignSelf: "end" }}
-    />
+    </View><View
+        name="image"
+        as="input"
+        type="file"
+        style={{ alignSelf: "end" }} /></>
   );
 };
 

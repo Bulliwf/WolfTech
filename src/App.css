@@ -15,9 +15,9 @@
 }
 
 .bannerText {
-  color: #ffffff !important;
+  color: #4233FF !important;
   text-align: center !important;
-  background-color: #ff9900 !important;
+  background-color: #EFEFF7 !important;
   margin-top: 0px !important;
   margin-bottom: 0px !important;
 }
@@ -35,7 +35,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-size: calc(10px + 25vmin);
   color: white;
 }
 
